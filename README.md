@@ -36,7 +36,7 @@ The image number 6 shows the users' rating table, divided by the areas they have
 ### Image #7
 ![image](https://user-images.githubusercontent.com/87894035/228020095-3d8a4617-097c-4578-8141-887e46d14075.png)
  
-Image seven shows the average air cleanliness rating specifically, which is calculated according to the principle shown in image eight. The sum of the ratings given by the users is calculated and then divided by the number of users who gave a rating.   
+Image seven shows the average air cleanliness rating specifically, which is calculated with the help of function (AVG) shown in image eight. The sum of the ratings given by the users is calculated and then divided by the number of users who gave a rating.   
 
 ### Image #8
 ![image](https://user-images.githubusercontent.com/87894035/228034348-b2871236-5677-457e-87ab-2c5024344e71.png)
@@ -46,7 +46,7 @@ Image seven shows the average air cleanliness rating specifically, which is calc
 ### Image #9
 ![image](https://user-images.githubusercontent.com/87894035/228020153-32d6f7cf-7eca-4190-9d59-072da6eecbd8.png)
 
-Image nine shows the calculation of the city's air cleanliness index, which is calculated using the method shown in image ten. The sum of the neighbourhood ratings is calculated and then the result is divided by the number of districts.
+Image nine shows the calculation of the city's air cleanliness index, which is calculated using the function shown in image ten. The sum of the neighbourhood ratings is calculated and then the result is divided by the number of districts.
 
 ### Image #10
 ![image](https://user-images.githubusercontent.com/87894035/228037356-7489ceba-aa5e-48fd-8b3c-b1e822e9c9f8.png)
