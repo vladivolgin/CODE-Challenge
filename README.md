@@ -1,10 +1,12 @@
 <h1 align="center">Hi there, I'm <a href="" target="_blank">Vlad</a>
 
+My most frequently used programming languages:
 
-<!---Пример кода-->
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=CODE+Challenge)](https://git.io/typing-svg)
 
-To store air assessment data, user data and data on polluted areas of the city, I created a database in SQL. All data added to the table are testing samples.
+### To store air assessment data, user data and data on polluted areas of the city, I created a database in SQL. All data added to the table are testing samples.
 ### Image #1
 ![image](https://user-images.githubusercontent.com/87894035/228008977-bfb617c4-1ab4-4c0a-be9f-f0c17dadd123.png)
                                               
