@@ -1,7 +1,8 @@
-<h1 align="center">Hi there, I'm <a href="https://daniilshat.ru/" target="_blank">Vlad</a>
+<h1 align="center">Hi there, I'm <a href="" target="_blank">Vlad</a>
 
-# CODE-Challenge
 
+<!---Пример кода-->
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=CODE+Challenge)](https://git.io/typing-svg)
 
 To store air assessment data, user data and data on polluted areas of the city, I created a database in SQL. All data added to the table are testing samples.
 ### Image #1
