@@ -1,7 +1,9 @@
+<h1 align="center">Hi there, I'm <a href="https://daniilshat.ru/" target="_blank">Vlad</a>
+
 # CODE-Challenge
 
 
-To store air assessment data, user data and data on polluted areas of the city, I created a database in SQL. 
+To store air assessment data, user data and data on polluted areas of the city, I created a database in SQL. All data added to the table are testing samples.
 ### Image #1
 ![image](https://user-images.githubusercontent.com/87894035/228008977-bfb617c4-1ab4-4c0a-be9f-f0c17dadd123.png)
                                               
