@@ -1,5 +1,10 @@
+ <div id="header" align="center">
+  <img src="https://media.giphy.com/media/vISmwpBJUNYzukTnVx/giphy.gif" width="300"/>
+</div>
 
-# CODE-Challenge
+<div id="header" align="center">
+
+ 
 
 ## Description
 
