@@ -29,9 +29,31 @@ The first image shows a diagram of how the tables are connected with each other.
 ### Image #2
 ![image](https://user-images.githubusercontent.com/87894035/228015307-7b42b11a-3878-4de7-92ea-90e7578f07ee.png)
 
-![image](https://user-images.githubusercontent.com/87894035/229439734-8f93a91f-c8ad-48c6-93ce-337f960ab1a9.png)
+```
+ CREATE TABLE Complaints.Complaints(
+	ComplaintsId int IDENTITY(1, 1) NOT NULL,
+	[Name] nvarchar(50) NOT NULL,
+	[Description] nvarchar(255) NOT NULL,
+	UserId int NOT NULL,
+	DistrictId int NOT NULL,
+	PRIMARY KEY(ComplaintsId))
+GO
+```
 
-![image](https://user-images.githubusercontent.com/87894035/229439799-10f34cff-a7f3-4ad5-8294-bc3d7ad3224b.png)
+```
+ SELECT * FROM Rating.Rating
+
+--DELETE FROM Complaints.Complaints
+INSERT INTO Complaints.Complaints([Name], [Description], UserId, DistrictId)
+VALUES
+('Strange smell', 'There is a strange smell in the central part. At the intersection of st. Lenin and Karl-Marx', 1, 5),
+('Hard breathe', 'It`s hard to breathe on Pushkin Street, the smell of burning is in the air.', 2, 3),
+('Impossible to be outside', 'It is impossible to be outside, it is hard to breathe and my eyes are teary.', 3, 2),
+('Horrible smell', 'It`s hard to be on Zavertyaev Street, you feel very unpleasant burning rubber.', 4, 1),
+('Exhaust smell', 'The smell of something burning is distinctly felt in the street.', 5, 4)
+GO
+```
+
 
 
 The complaints table contains the complaint number, the complaint name, description, user ID and the district ID of the district where the user sent the complaint.
@@ -39,56 +61,163 @@ The complaints table contains the complaint number, the complaint name, descript
 ### Image #3
 ![image](https://user-images.githubusercontent.com/87894035/228016473-fd687aeb-a803-4215-918b-7c4e4217b512.png)
 
-![image](https://user-images.githubusercontent.com/87894035/229440064-6d341c28-e24b-41cc-a9b1-29fb76edab64.png)
+```
+ CREATE TABLE City.District(
+	DistrictId int IDENTITY(1, 1) NOT NULL,
+	CityId int NOT NULL,
+	[Name] nvarchar(50) NOT NULL,
+	PRIMARY KEY(DistrictId))
+GO
+```
 
-![image](https://user-images.githubusercontent.com/87894035/229440349-c37e80d5-b08f-4ddd-a924-c4ff354f216a.png)
+```
+ SELECT * FROM City.City
 
+--DELETE FROM City.District
+INSERT INTO City.District(CityId, [Name])
+VALUES
+(1, 'Kirovskiy'),
+(1, 'Leninskiy'),
+(1, 'Octoberskiy'),
+(1, 'Sovietskiy'),
+(1, 'Central')
+GO
+```
 
 The district table contains data about the district number, Id city and district name
 
 ### Image #4
 ![image](https://user-images.githubusercontent.com/87894035/228018858-5a2f545e-8a36-46d6-a00f-76bf9626cdbd.png)
 
-![image](https://user-images.githubusercontent.com/87894035/229440527-a2c7f0d5-6e4b-4da0-8b0f-611974dec74c.png)
+```
+CREATE SCHEMA City
+GO
 
-![image](https://user-images.githubusercontent.com/87894035/229440653-8aa440b2-c94a-48bf-95b7-ba82c0d9c4a4.png)
+CREATE TABLE City.City(
+	CityId int IDENTITY(1, 1) NOT NULL,
+	[Name] nvarchar(50) NOT NULL,
+	PRIMARY KEY(CityId))
+GO
+```
+```
+--DELETE FROM City.City
+INSERT INTO City.City([Name])
+VALUES
+('Omsk')
+GO
+```
 
 The city table contains data about the city ID and the name of the city. Since I based my challenge on solving the problem of the residents of my hometown. The test data in this table is my city data.
 
 ### Image #5
 ![image](https://user-images.githubusercontent.com/87894035/228018487-8f298cd0-1bae-44b1-8d70-4b189a7a5400.png)
 
-![image](https://user-images.githubusercontent.com/87894035/229440881-2f81275b-7243-4df6-8aca-ae035ad2ab10.png)
+```
+CREATE SCHEMA Person
+GO
 
-![image](https://user-images.githubusercontent.com/87894035/229440962-112467c0-f356-41ca-80c4-8662402a1847.png)
+DROP TABLE Person.UserInfo
+CREATE TABLE Person.UserInfo(
+	UserId int IDENTITY(1, 1) NOT NULL,
+	[Name] nvarchar(50) NOT NULL,
+	Surname nvarchar(50) NOT NULL,
+	Age int NOT NULL,
+	Gender bit, 
+	City nvarchar(50) NOT NULL,
+	[Login] nvarchar(255) NOT NULL,
+	[Password] nvarchar(255) NOT NULL,
+	Email nvarchar(255) NOT NULL,
+	PRIMARY KEY (UserId))
+GO
+```
+```
+--DELETE FROM Person.UserInfo
+INSERT INTO Person.UserInfo([Name], Surname, Age, Gender, City, [Login], [Password], Email)
+VALUES
+('Dmitriy', 'Karimov', 25, 1, 'Omsk', 'DK2555', '123456', 'DK2555@mail.ru'),
+('Ivan', 'Novikov', 23, 1, 'Omsk', 'IN2355', '123456', 'IN2355@mail.ru'),
+('Julia', 'Panina', 20, 0, 'Omsk', 'JP2055', '123456', 'JP2055@mail.ru'),
+('Ekaterina', 'Fomina', 34, 0, 'Omsk', 'EF3455', '123456', 'EF3455@mail.ru'),
+('Olga', 'Glumieva', 26, 0, 'Omsk', 'OG2655', '123456', 'OG2655@mail.ru')
+GO
+```
 
 The user data table is shown in the fifth image. It contains data about names, surnames, age, gender of users, as well as their login, password token and email.
 
 ### Image #6
 ![image](https://user-images.githubusercontent.com/87894035/228018895-d225ce50-8700-412b-97c0-81e922d91901.png)
 
-![image](https://user-images.githubusercontent.com/87894035/229441165-d228ca96-fa4d-4cf4-adf6-3a6a49c4b19c.png)
+```
+CREATE SCHEMA Rating
+GO
 
-![image](https://user-images.githubusercontent.com/87894035/229441095-41f8079f-5c1d-4200-b981-5224e3b8bdb3.png)
+CREATE TABLE Rating.Rating(
+	RatingId int IDENTITY(1, 1) NOT NULL,
+	UserId int NOT NULL,
+	DistrictId int NOT NULL,
+	Rating float NOT NULL,
+	PRIMARY KEY(RatingId))
+GO
+```
+```
+SELECT * FROM City.District
+
+--DELETE FROM Rating.Rating
+INSERT INTO Rating.Rating(UserId, DistrictId, Rating)
+VALUES
+(1, 1, 3.5),
+(1, 2, 3.7),
+(1, 3, 3.6),
+(1, 4, 3.2),
+(1, 5, 4.1),
+(2, 1, 3.4),
+(2, 2, 3.5),
+(2, 3, 3.4),
+(2, 4, 3.1),
+(2, 5, 4.3),
+(3, 1, 2.1),
+(3, 2, 4.5),
+(3, 3, 3.6),
+(3, 4, 2.3),
+(3, 5, 3.7),
+(4, 1, 3.4),
+(4, 2, 3.4),
+(4, 3, 4.1),
+(4, 4, 2.1),
+(4, 5, 3.5),
+(5, 1, 4.1),
+(5, 2, 3.4),
+(5, 3, 3.5),
+(5, 4, 4.1),
+(5, 5, 4.7)
+GO
+```
 
 The image number 6 shows the users' rating table, divided by the areas they have rated. It contains the user ID, the district ID and the rating the user has given it.
 
 ### Image #7
 ![image](https://user-images.githubusercontent.com/87894035/228020095-3d8a4617-097c-4578-8141-887e46d14075.png)
  
-Image seven shows the average air cleanliness rating specifically, which is calculated with the help of function (AVG) shown in image eight. The sum of the ratings given by the users is calculated and then divided by the number of users who gave a rating.   
+Image seven shows the average air cleanliness rating specifically, which is calculated with the help of function (AVG) shown below. The sum of the ratings given by the users is calculated and then divided by the number of users who gave a rating.   
+
+```
+SELECT * FROM Complaints.Complaints
+
+SELECT AVG(Rating) AS 'Average rating for District'
+FROM Rating.Rating
+WHERE DistrictId = 1
+```
+
 
 ### Image #8
-![image](https://user-images.githubusercontent.com/87894035/228034348-b2871236-5677-457e-87ab-2c5024344e71.png)
-
-
-
-### Image #9
 ![image](https://user-images.githubusercontent.com/87894035/228020153-32d6f7cf-7eca-4190-9d59-072da6eecbd8.png)
 
 Image nine shows the calculation of the city's air cleanliness index, which is calculated using the function shown in image ten. The sum of the neighbourhood ratings is calculated and then the result is divided by the number of districts.
 
-### Image #10
-![image](https://user-images.githubusercontent.com/87894035/228037356-7489ceba-aa5e-48fd-8b3c-b1e822e9c9f8.png)
-
+```
+SELECT AVG(Rating) AS 'Average rating for City'
+FROM Rating.Rating
+JOIN City.District ON Rating.DistrictId = District.DistrictId
+WHERE District.CityId = 1
+```
 
