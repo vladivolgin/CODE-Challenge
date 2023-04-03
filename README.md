@@ -212,7 +212,7 @@ WHERE DistrictId = 1
 ### Image #8
 ![image](https://user-images.githubusercontent.com/87894035/228020153-32d6f7cf-7eca-4190-9d59-072da6eecbd8.png)
 
-Image nine shows the calculation of the city's air cleanliness index, which is calculated using the function shown in image ten. The sum of the neighbourhood ratings is calculated and then the result is divided by the number of districts.
+Image nine shows the calculation of the city's air cleanliness index, which is calculated using the function shown below. The sum of the neighbourhood ratings is calculated and then the result is divided by the number of districts.
 
 ```
 SELECT AVG(Rating) AS 'Average rating for City'
