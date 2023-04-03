@@ -2,9 +2,7 @@
   <img src="https://media.giphy.com/media/vISmwpBJUNYzukTnVx/giphy.gif" width="300"/>
 </div>
 
-<div id="header" align="center">
-
- 
+# CODE-Challenge
 
 ## Description
 
