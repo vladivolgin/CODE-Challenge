@@ -256,11 +256,11 @@ Here is an overview of the stack I used during the challenge:
 
 | App | Link |
 | ------ | ------ |
-| Figma | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Figma Community | [plugins/googledrive/README.md][PlGd] |
-| MySQL | [plugins/onedrive/README.md][PlOd] |
-| LogoAI | [plugins/medium/README.md][PlMe] |
+| Figma |https://www.figma.com/file/imd6YgYKK6VH4rSWyBBDJX/AirRate-Mockup?node-id=0%3A1&t=a8aIDi4xb1tvXjtS-1|
+| GitHub |https://github.com/vladivolgin |
+| Figma Community | https://www.figma.com/community |
+| MySQL | https://www.mysql.com/ |
+| turbologo| https://turbologo.ru/create-logo |
 | Hemingsway Editor | [https://hemingwayapp.com/][PlGa] |
 
 ---
