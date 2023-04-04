@@ -1,19 +1,14 @@
- <div id="header" align="center">
-  <img src="https://media.giphy.com/media/vISmwpBJUNYzukTnVx/giphy.gif" width="300"/>
-</div>
 
 # CODE-Challenge
 
+
+
 ## Description
+
 
 This repository presents a project completed as part of the CODE Entrance Challenge. 
 
-The first time I looked at the Challenge text,a variety of thoughts came to my mind - from the difficulties of digitalisation at charity organizations to the uncontrolled dumping of plastic into water reservoirs. In order to organize my ideas, I decided to take a walk around my neighborhood. However, as soon as I opened the door, the smell of chemicals in the air hit me in the nose. I have to admit that, unfortunately, this situation is no exception in my city. Citizens often complain about the fact that it is impossible to breathe freely. Everyone applies to the government one by one, but the local administration either ignores the requests or provides the results of laboratories that have found out nothing.
-
-So what is the reason for this bad air quality? On the one hand, my hometown of Omsk is a large industrial center with many factories, plants and all sorts of production facilities. One of the local " proud" is a very large oil refinery with a number of chemical enterprises. On the other hand, there are many landfills around the city (including illegal ones). Only recently, the government has started taking active steps to fight against rubbish, e.g. through waste-sorting and incineration plants, but the first tangible results are still a long way off.
-
-To change this situation, I decided to develop an easy-to-use mobile app where citizens could report poor air quality in the area they are in, as well as monitoring other notifications. Before starting to develop it, it is necessary to look at the target audience in more detail.
-
+To change the ecological situation in my hometown, I decided to develop an easy-to-use mobile app where citizens could report poor air quality in the area they are in, as well as monitoring other notifications. Before starting to develop it, it is necessary to look at the target audience in more detail.
 
 After an initial analysis, I needed a mocap made with Figma to gain first feedback. I've rarely experienced this application; however, I was surprised by the enormous potential - I had the chance to feel like a real designer who builds user flow and works on the interface and functionality. Even after watching hours of tutorial videos, I still had some questions, which I was able to solve with the help of the awesome Figma Community. Additionally, all the data needs to be stored somewhere. I learned about SQL, which was new to me, and after studying the documentation, I built my first databases. I aimed to make these databases more dynamic and reflect events like user data changes or a new report appearing.
 While testing my mock-ups on family and friends, I realised that you have to give up things you are even attached to, but which confuses the final user. Admittedly, it was challenging the first few times, but later I realised that this process is an integral part of development.
@@ -21,14 +16,21 @@ To sum up, I had a truly unique and rewarding experience, and I hope that in the
 
 To store air assessment data, user data and data on polluted areas of the city, I created a database in SQL. All data added to the table are testing samples.
 
+
+## I had to make links between the data tables:
+
 ### Image #1
 ![image](https://user-images.githubusercontent.com/87894035/228008977-bfb617c4-1ab4-4c0a-be9f-f0c17dadd123.png)
                                               
 The first image shows a diagram of how the tables are connected with each other. I have created a total of five tables: Complaints, user information, rating, district and city.
 
-### Image #2
+
+## After setting up the links, I created a table of complaints:
+
+#### Image#1
 ![image](https://user-images.githubusercontent.com/87894035/228015307-7b42b11a-3878-4de7-92ea-90e7578f07ee.png)
 
+### Code solution:
 ```
  CREATE TABLE Complaints.Complaints(
 	ComplaintsId int IDENTITY(1, 1) NOT NULL,
@@ -39,7 +41,7 @@ The first image shows a diagram of how the tables are connected with each other.
 	PRIMARY KEY(ComplaintsId))
 GO
 ```
-
+### Test data introduction:
 ```
  SELECT * FROM Rating.Rating
 
@@ -55,12 +57,16 @@ GO
 ```
 
 
-
 The complaints table contains the complaint number, the complaint name, description, user ID and the district ID of the district where the user sent the complaint.
+
+## The next step was to create a table of districts:
 
 ### Image #3
 ![image](https://user-images.githubusercontent.com/87894035/228016473-fd687aeb-a803-4215-918b-7c4e4217b512.png)
 
+The district table contains data about the district number, Id city and district name.
+
+### Code solution:
 ```
  CREATE TABLE City.District(
 	DistrictId int IDENTITY(1, 1) NOT NULL,
@@ -69,7 +75,7 @@ The complaints table contains the complaint number, the complaint name, descript
 	PRIMARY KEY(DistrictId))
 GO
 ```
-
+### Test data introduction:
 ```
  SELECT * FROM City.City
 
@@ -84,11 +90,15 @@ VALUES
 GO
 ```
 
-The district table contains data about the district number, Id city and district name
+## After creating the districts table, I created a city table
 
 ### Image #4
+
 ![image](https://user-images.githubusercontent.com/87894035/228018858-5a2f545e-8a36-46d6-a00f-76bf9626cdbd.png)
 
+The city table contains data about the city ID and the name of the city. Since I based my challenge on solving the problem of the residents of my hometown. The test data in this table is my city data.
+
+### Code solution:
 ```
 CREATE SCHEMA City
 GO
@@ -99,6 +109,7 @@ CREATE TABLE City.City(
 	PRIMARY KEY(CityId))
 GO
 ```
+### Test data introduction:
 ```
 --DELETE FROM City.City
 INSERT INTO City.City([Name])
@@ -107,11 +118,15 @@ VALUES
 GO
 ```
 
-The city table contains data about the city ID and the name of the city. Since I based my challenge on solving the problem of the residents of my hometown. The test data in this table is my city data.
+## In order to save user data and for  properly working of authorisation and registration , I have created a table with personal user information:
+
 
 ### Image #5
 ![image](https://user-images.githubusercontent.com/87894035/228018487-8f298cd0-1bae-44b1-8d70-4b189a7a5400.png)
 
+The user data table is shown in the fifth image. It contains data about names, surnames, age, gender of users, as well as their login, password token and email.
+
+### Code solution:
 ```
 CREATE SCHEMA Person
 GO
@@ -130,6 +145,7 @@ CREATE TABLE Person.UserInfo(
 	PRIMARY KEY (UserId))
 GO
 ```
+### Test data introduction:
 ```
 --DELETE FROM Person.UserInfo
 INSERT INTO Person.UserInfo([Name], Surname, Age, Gender, City, [Login], [Password], Email)
@@ -142,11 +158,15 @@ VALUES
 GO
 ```
 
-The user data table is shown in the fifth image. It contains data about names, surnames, age, gender of users, as well as their login, password token and email.
+## I have created a rating table to save data of the air users' ratings:
 
 ### Image #6
+
 ![image](https://user-images.githubusercontent.com/87894035/228018895-d225ce50-8700-412b-97c0-81e922d91901.png)
 
+The image number 6 shows the users' rating table, divided by the areas they have rated. It contains the user ID, the district ID and the rating the user has given it.
+
+### Code solution:
 ```
 CREATE SCHEMA Rating
 GO
@@ -159,6 +179,8 @@ CREATE TABLE Rating.Rating(
 	PRIMARY KEY(RatingId))
 GO
 ```
+
+### Test data introduction:
 ```
 SELECT * FROM City.District
 
@@ -193,13 +215,14 @@ VALUES
 GO
 ```
 
-The image number 6 shows the users' rating table, divided by the areas they have rated. It contains the user ID, the district ID and the rating the user has given it.
+## To output the average district rating, I have created a table of the average district rating
 
 ### Image #7
 ![image](https://user-images.githubusercontent.com/87894035/228020095-3d8a4617-097c-4578-8141-887e46d14075.png)
  
 Image seven shows the average air cleanliness rating specifically, which is calculated with the help of function (AVG) shown below. The sum of the ratings given by the users is calculated and then divided by the number of users who gave a rating.   
 
+### Code solution:
 ```
 SELECT * FROM Complaints.Complaints
 
@@ -208,12 +231,15 @@ FROM Rating.Rating
 WHERE DistrictId = 1
 ```
 
+## To output the average city rating, I have created a table of the average city rating
 
 ### Image #8
+
 ![image](https://user-images.githubusercontent.com/87894035/228020153-32d6f7cf-7eca-4190-9d59-072da6eecbd8.png)
 
 Image nine shows the calculation of the city's air cleanliness index, which is calculated using the function shown below. The sum of the neighbourhood ratings is calculated and then the result is divided by the number of districts.
 
+### Code solution:
 ```
 SELECT AVG(Rating) AS 'Average rating for City'
 FROM Rating.Rating
