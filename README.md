@@ -6,29 +6,26 @@
 ## Description
 
 
-This repository presents a project completed as part of the CODE Entrance Challenge. 
+This repository presents a project completed as part of the CODE Challenge for CODE University.
 
-To change the ecological situation in my hometown, I decided to develop an easy-to-use mobile app where citizens could report poor air quality in the area they are in, as well as monitoring other notifications. Before starting to develop it, it is necessary to look at the target audience in more detail.
+The main idea behind this project is to change my hometown's ecological situation. To achieve this, I decided to develop an easy-to-use mobile app where local citizens could report poor air quality in their area and monitor other notifications. Before starting the development, I analysed the target audience and created two personas to reflect the overall needs and concerns better. 
 
-After an initial analysis, I needed a mocap made with Figma to gain first feedback. I've rarely experienced this application; however, I was surprised by the enormous potential - I had the chance to feel like a real designer who builds user flow and works on the interface and functionality. Even after watching hours of tutorial videos, I still had some questions, which I was able to solve with the help of the awesome Figma Community. Additionally, all the data needs to be stored somewhere. I learned about SQL, which was new to me, and after studying the documentation, I built my first databases. I aimed to make these databases more dynamic and reflect events like user data changes or a new report appearing.
-While testing my mock-ups on family and friends, I realised that you have to give up things you are even attached to, but which confuses the final user. Admittedly, it was challenging the first few times, but later I realised that this process is an integral part of development.
-To sum up, I had a truly unique and rewarding experience, and I hope that in the future, with the help of CODE, I will be able to implement my idea completely.
+To gain the first feedback as soon as possible, I made a mock-up with Figma that reflected the planned functionality. I had tons of inspiration from the Figma Community as well. At the same time, I was thinking about what would happen in the background since all the complaints have to be stored somewhere. This was when I got introduced to SQL, which I used to create my first-ever databases. You can find them below, together with the code. All the data is solely testing data. 
 
-To store air assessment data, user data and data on polluted areas of the city, I created a database in SQL. All data added to the table are testing samples.
+In summary, I had a unique and rewarding experience where I learned a lot. As for the next, I would like to develop a SWIFT application for the IOS platform and a Kotlin application for the Android platform, also I would like to develop a website to extend the functionality of the site for advanced PC users in the future.
 
 
-## I had to make links between the data tables:
+## Overall structure. 
 
-### Image #1
-![image](https://user-images.githubusercontent.com/87894035/228008977-bfb617c4-1ab4-4c0a-be9f-f0c17dadd123.png)
-                                              
+I had to make links between the data tables.
+                                             
 The first image shows a diagram of how the tables are connected with each other. I have created a total of five tables: Complaints, user information, rating, district and city.
 
+### Result screen
+![image](https://user-images.githubusercontent.com/87894035/228008977-bfb617c4-1ab4-4c0a-be9f-f0c17dadd123.png)
 
-## After setting up the links, I created a table of complaints:
-
-#### Image#1
-![image](https://user-images.githubusercontent.com/87894035/228015307-7b42b11a-3878-4de7-92ea-90e7578f07ee.png)
+##  Table with users' complaints.
+After setting up the links, I created a table of complaints.
 
 ### Code solution:
 ```
@@ -56,14 +53,13 @@ VALUES
 GO
 ```
 
+#### Result screen
+![image](https://user-images.githubusercontent.com/87894035/228015307-7b42b11a-3878-4de7-92ea-90e7578f07ee.png)
 
 The complaints table contains the complaint number, the complaint name, description, user ID and the district ID of the district where the user sent the complaint.
 
-## The next step was to create a table of districts:
-
-### Image #3
-![image](https://user-images.githubusercontent.com/87894035/228016473-fd687aeb-a803-4215-918b-7c4e4217b512.png)
-
+## Table with city districts.
+The next step was to create a table of districts.
 The district table contains data about the district number, Id city and district name.
 
 ### Code solution:
@@ -89,13 +85,11 @@ VALUES
 (1, 'Central')
 GO
 ```
+### Result screen
+![image](https://user-images.githubusercontent.com/87894035/228016473-fd687aeb-a803-4215-918b-7c4e4217b512.png)
 
-## After creating the districts table, I created a city table
-
-### Image #4
-
-![image](https://user-images.githubusercontent.com/87894035/228018858-5a2f545e-8a36-46d6-a00f-76bf9626cdbd.png)
-
+## City Table.
+After creating the districts table, I created a city table.
 The city table contains data about the city ID and the name of the city. Since I based my challenge on solving the problem of the residents of my hometown. The test data in this table is my city data.
 
 ### Code solution:
@@ -118,11 +112,13 @@ VALUES
 GO
 ```
 
-## In order to save user data and for  properly working of authorisation and registration , I have created a table with personal user information:
+### Result screen
+![image](https://user-images.githubusercontent.com/87894035/228018858-5a2f545e-8a36-46d6-a00f-76bf9626cdbd.png)
 
 
-### Image #5
-![image](https://user-images.githubusercontent.com/87894035/228018487-8f298cd0-1bae-44b1-8d70-4b189a7a5400.png)
+## User information.
+
+In order to save user data and for properly working of authorisation and registration , I have created a table with personal user information.
 
 The user data table is shown in the fifth image. It contains data about names, surnames, age, gender of users, as well as their login, password token and email.
 
@@ -158,11 +154,11 @@ VALUES
 GO
 ```
 
-## I have created a rating table to save data of the air users' ratings:
+### Result screen
+![image](https://user-images.githubusercontent.com/87894035/228018487-8f298cd0-1bae-44b1-8d70-4b189a7a5400.png)
 
-### Image #6
-
-![image](https://user-images.githubusercontent.com/87894035/228018895-d225ce50-8700-412b-97c0-81e922d91901.png)
+## Rating table.
+I have created a rating table to save data of the air users' ratings.
 
 The image number 6 shows the users' rating table, divided by the areas they have rated. It contains the user ID, the district ID and the rating the user has given it.
 
@@ -214,13 +210,14 @@ VALUES
 (5, 5, 4.7)
 GO
 ```
+### Result screen
 
-## To output the average district rating, I have created a table of the average district rating
+![image](https://user-images.githubusercontent.com/87894035/228018895-d225ce50-8700-412b-97c0-81e922d91901.png)
 
-### Image #7
-![image](https://user-images.githubusercontent.com/87894035/228020095-3d8a4617-097c-4578-8141-887e46d14075.png)
- 
-Image seven shows the average air cleanliness rating specifically, which is calculated with the help of function (AVG) shown below. The sum of the ratings given by the users is calculated and then divided by the number of users who gave a rating.   
+## Average rating table for district and for city.
+To output the average district rating, I have created a table of the average district rating.
+  
+Air cleanliness rating specifically, which is calculated with the help of function (AVG) shown below. The sum of the ratings given by the users is calculated and then divided by the number of users who gave a rating. 
 
 ### Code solution:
 ```
@@ -230,14 +227,10 @@ SELECT AVG(Rating) AS 'Average rating for District'
 FROM Rating.Rating
 WHERE DistrictId = 1
 ```
-
-## To output the average city rating, I have created a table of the average city rating
-
-### Image #8
-
-![image](https://user-images.githubusercontent.com/87894035/228020153-32d6f7cf-7eca-4190-9d59-072da6eecbd8.png)
-
-Image nine shows the calculation of the city's air cleanliness index, which is calculated using the function shown below. The sum of the neighbourhood ratings is calculated and then the result is divided by the number of districts.
+### Result screen
+![image](https://user-images.githubusercontent.com/87894035/228020095-3d8a4617-097c-4578-8141-887e46d14075.png)
+ 
+Calculation of the city's air cleanliness index, which is calculated using the function shown below. The sum of the neighbourhood ratings is calculated and then the result is divided by the number of districts.
 
 ### Code solution:
 ```
@@ -246,4 +239,5 @@ FROM Rating.Rating
 JOIN City.District ON Rating.DistrictId = District.DistrictId
 WHERE District.CityId = 1
 ```
-
+### Result screen
+![image](https://user-images.githubusercontent.com/87894035/228020153-32d6f7cf-7eca-4190-9d59-072da6eecbd8.png)
